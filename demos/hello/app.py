@@ -11,3 +11,12 @@ app = APIFlask(__name__)
 @app.route("/")
 def index():
     return "Hello apiflask!"
+
+@app.route('/hello/<name>')
+def hello(name:str):
+    return f'Hello {name}!'
+
+@app.route('/say_hello', defaults={'name': 'farmer'})
+@app.route('/say_hello/<name>')
+def say_hello(name:str):
+    return f'Hello {name}!'
